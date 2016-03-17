@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div>Hello from index.html</div>
+  <form action='' method='get'>
+    <input type='text' name='artist_string' placeholder='Enter artist name'>
+    <input type='text' name='song_string' placeholder='Enter song name'>
+    <input type='submit' value='Search'>
+  </form>
+  <br>
+  <div>
+    {% autoescape off %}
+    {{ search_results }}
+    {% endautoescape %}
+  </div>
+
+  <div>
+    {% autoescape off %}
+    {% for tab in tabs %}
+    {{ tab }}
+    {% endfor %}
+    {% endautoescape %}
+  </div>
 {% endblock %}
