@@ -31,7 +31,6 @@ class TabView(TemplateView):
         content = requests.get(url).content
         soup = BeautifulSoup(content)
         context['tabs'] = [tab.prettify() for tab in soup.find_all('pre')]
-
-        print(context)
         return context
+
 

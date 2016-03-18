@@ -6,18 +6,27 @@
     <input type='text' name='song_string' placeholder='Enter song name'>
     <input type='submit' value='Search'>
   </form>
-  <br>
-  <div>
-    {% autoescape off %}
-    {{ search_results }}
-    {% endautoescape %}
-  </div>
 
-  <div>
-    {% autoescape off %}
-    {% for tab in tabs %}
-    {{ tab }}
-    {% endfor %}
-    {% endautoescape %}
-  </div>
+  <br>
+    <div>
+      {% autoescape off %}
+        {{ search_results }}
+      {% endautoescape %}
+    </div>
+
+    <div>
+      {% autoescape off %}
+        {% for tab in tabs %}
+          {{ tab }}
+        {% endfor %}
+      {% endautoescape %}
+    </div>
+
+    <div>
+      {% autoescape off %}
+        {% for artist in artists %}
+          {{ artist }}
+        {% endfor %}
+      {% endautoescape %}
+    </div>
 {% endblock %}
