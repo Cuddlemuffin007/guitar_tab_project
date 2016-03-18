@@ -4,7 +4,7 @@
   <form action='' method='get'>
     <input type='text' name='artist_string' placeholder='Enter artist name'>
     <input type='text' name='song_string' placeholder='Enter song name'>
-    <input type='submit' value='Search'>
+    <input class='btn' type='submit' value='Search'>
   </form>
 
   <br>
@@ -14,19 +14,4 @@
       {% endautoescape %}
     </div>
 
-    <div>
-      {% autoescape off %}
-        {% for tab in tabs %}
-          {{ tab }}
-        {% endfor %}
-      {% endautoescape %}
-    </div>
-
-    <div>
-      {% autoescape off %}
-        {% for artist in artists %}
-          {{ artist }}
-        {% endfor %}
-      {% endautoescape %}
-    </div>
 {% endblock %}

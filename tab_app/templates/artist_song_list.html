@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class='page-header'>Artist Song List</h1>
+      {% autoescape off %}
+        {% for song in songs %}
+          <p class='song-name'>
+            {{ song }}
+          </p>
+        {% endfor %}
+      {% endautoescape %}
+{% endblock %}
