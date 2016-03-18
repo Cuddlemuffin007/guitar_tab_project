@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class='page-header'>Top 100 Searched Tabs</h1>
+
+  {% autoescape off %}
+    {{ search_results }}
+  {% endautoescape %}
+{% endblock %}

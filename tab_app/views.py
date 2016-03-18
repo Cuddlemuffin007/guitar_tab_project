@@ -16,8 +16,6 @@ class IndexView(TemplateView):
         song_string = self.request.GET.get('song_string')
         content = requests.get(URL.format(artist_string, song_string)).content
         soup = BeautifulSoup(content).find(class_='tabslist')
-        for link in soup.find_all('a'):
-            link['href'] = reverse('tab_detail_view', kwargs={'url': link['href']})
         context['search_results'] = soup.prettify()
         print(context['search_results'])
         return context
@@ -46,4 +44,14 @@ class ArtistSongsView(TemplateView):
         context['songs'] = [song.prettify() for song in soup.find_all(class_='ryzh2')]
         return context
 
+
+class TopTabsView(TemplateView):
+    template_name = 'top_tabs.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        url = BASE_URL + 'top_tabs.html'
+        soup = BeautifulSoup(requests.get(url).content)
+        context['search_results'] = soup.find(class_='tabslist').prettify()
+        return context
 

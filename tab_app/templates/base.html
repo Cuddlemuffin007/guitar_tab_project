@@ -1,9 +1,11 @@
+{% load staticfiles %}
 <!doctype html>
 <html>
   <head>
     <title></title>
     <meta></meta>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
   </head>
 
   <body>
@@ -11,6 +13,7 @@
       <div class="nav-wrapper">
         <a href="{% url 'index_view' %}" class="brand-logo left">Awesome Guitar Tabs</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{% url 'top_tabs_view' %}">Top 100 Tabs</a></li>
             <li><a href="{% url 'index_view' %}">Home</a></li>
           </ul>
         </div>
