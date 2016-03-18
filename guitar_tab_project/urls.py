@@ -20,5 +20,6 @@ from tab_app import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.IndexView.as_view(), name='index_view'),
+    url(r'^(?P<artist_url>/tabs/\w/.+/)$', views.ArtistSongsView.as_view(), name='artist_song_list_view'),
     url(r'^(?P<url>.+)', views.TabView.as_view(), name='tab_detail_view')
 ]
