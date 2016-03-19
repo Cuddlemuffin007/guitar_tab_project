@@ -1,4 +1,3 @@
-from django.core.urlresolvers import reverse
 from django.views.generic import TemplateView
 from bs4 import BeautifulSoup
 import requests
@@ -10,6 +9,10 @@ URL = 'http://www.guitartabs.cc/search.php?tabtype=any&band={}&song={}'
 class IndexView(TemplateView):
     template_name = 'index.html'
 
+
+class SearchResultsView(TemplateView):
+    template_name = 'index.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         artist_string = self.request.GET.get('artist_string')
@@ -17,7 +20,7 @@ class IndexView(TemplateView):
         content = requests.get(URL.format(artist_string, song_string)).content
         soup = BeautifulSoup(content).find(class_='tabslist')
         context['search_results'] = soup.prettify()
-        print(context['search_results'])
+        print(context)
         return context
 
 
