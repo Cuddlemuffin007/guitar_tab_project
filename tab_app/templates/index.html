@@ -10,7 +10,11 @@
   <br>
     <div>
       {% autoescape off %}
-        {{ search_results }}
+        {% if search_results %}
+          {{ search_results }}
+        {% else %}
+          <p>No results</p>
+        {% endif %}
       {% endautoescape %}
     </div>
 
