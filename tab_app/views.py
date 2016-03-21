@@ -20,7 +20,6 @@ class SearchResultsView(TemplateView):
         content = requests.get(URL.format(artist_string, song_string)).content
         soup = BeautifulSoup(content).find(class_='tabslist')
         context['search_results'] = soup.prettify()
-        print(context)
         return context
 
 
